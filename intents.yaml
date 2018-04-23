@@ -1,0 +1,19 @@
+  TempIntent:
+    speech:
+      type: plain
+      text: "The current temperature in the {{ Room }}  is {{states(['sensor.',Room,'_temp']| join|replace(' ', '_'))}} degrees."
+
+  HumidIntent:
+    speech:
+      type: plain
+      text: "The current humidity in the {{ Room }}  is {{states(['sensor.',Room,'_humidity']| join|replace(' ', '_'))}} percent."
+      
+  SetTempIntent:
+    action:
+      service: restful_command.thermo_override
+#      data_template:
+#        location: {{Location}}
+#        temperature: {{Temperature}}
+    speech:
+      type: plain
+      text: "I've set the temperature {{ Location}} to {{ Temperature}} degrees."

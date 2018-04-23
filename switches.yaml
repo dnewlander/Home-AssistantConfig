@@ -1,0 +1,128 @@
+  - platform: rest
+    name: thermo_overridex
+    resource: http://dnewlander.ddns.net:3000/temp
+    headers:
+        Content-Type: application/json
+    body_on: '{"type":"override","location":"downstairs","value":"75"}'
+    body_off: '{"type":"reset","location":"downstairs"}'
+    is_on_template: '{{value_json.override}}'
+#        command_on: curl -X POST -d type=override -d location=downstairs -d value=77 dnewlander.ddns.net:3000/temp
+#        command_off: curl -X POST -d type=reset -d location=downstairs dnewlander.ddns.net:3000/temp
+  - platform: broadlink
+    host: 192.168.0.178
+    mac: '34:EA:34:51:31:E0'
+    type: rm_mini
+    timeout: 15
+    switches:
+      bed_light:
+        friendly_name: "Bedroom Light Power"
+        command_on: 'JgBaAAACpeFL4kwAASxLmEtL4QACDwACpeNL4UwAASxNlUxK4wACDwACpeFL40wAAStLmExK4wACDQACpeNL4UwAAS1LlkxK5AACDgACpeBM4EwAASxLlktL4gANBQAAAAAAAAAAAAAAAAAA'
+        command_off: 'JgBQAAACqN5O305IAAEvSE/fTZNPAAF0AAKo303eTkgAATFITt5Ok08AAXQAAqjeTt5PSAABL0hO3k+TTgABdAACp91Q3k5IAAEwSE7eTpNPAA0FAAAAAAAAAAA='
+      bed_light_up:
+        friendly_name: "Bedroom Light Up"
+        command_on: 'JgAoAE3fTQABdQACpt9N3VAAAXRN307eTgABdQACpd9O3k4AAXVO3k4ADQU='
+        command_off: ''
+      bed_light_down:
+        friendly_name: "Bedroom Light Down"
+        command_on: 'JgA8AAACpt5O300AAXVOAAEqTUlOAAG/AAKm307eTgABdE0AASpOSE4AAcAAAqXfTt5OAAF1TgABKU5ITgANBQAAAAAAAAAAAAAAAA=='
+        command_off: ''
+      bed_light_fav:
+        friendly_name: "Bedroom Light Favorite"
+        command_on: 'JgBkAAACqN5O3k4AASlPk05ImUjlAAEqAAKm307eTgABKk6TT0eaSOQAASkAAqjeT95OAAEpTpNPR5pI5QABKQACp95P3k4AASlOk09ImUjkAAEpAAKn3k/eTgABKU6TT0iZSOQADQUAAAAA'
+        command_off: ''
+      bed_fan_on:
+        friendly_name: "Bedroom Fan On"
+        command_on: 'JgA8AAACp+FNAAEqTuBOk05JAAF6AAF3AAKo304AASlO3k+TTkgAAXoAAXUAAqbfTQABKk7fTZROSAABegANBQAAAAAAAAAAAAAAAA=='
+        command_off: 'JgA8AAACp95OAAEqAAF7SE7eTklNAAHBAAKm3k4AASoAAXpITt9NSU4AAb8AAqffTQABKgABeklN305ITgANBQAAAAAAAAAAAAAAAA=='
+      bed_fan_up:
+        friendly_name: "Bedroom Fan Up"
+        command_on: 'JgAwAAACp95OAAEqTgABKU3fTZROAAHAAAKm3k4AASlOAAEqTd9Ok04AAb8AAqfeTgANBQAAAAAAAAAA'
+        command_off: ''
+      bed_fan_down:
+        friendly_name: "Bedroom Fan Down"
+        command_on: 'JgA0AAACpd9OAAEpTgABKk0AASpOlEwAAXUAAqfeTgABKk0AASlOAAEqTZROAAF1AAKm300ADQUAAAAA'
+        command_off: ''
+      bed_fan_favorite:
+        friendly_name: "Bedroom Fan Favorite"
+        command_on: 'JgBkAAACqN5OAAEpT95Ok05Imd9PAAEpAAKn3k4AASlP3k6UTUmZ3k4AASoAAqffTgABKU7fTZRNSZnfTgABKgACpt9OAAEpTt9NlE1Jmd9NAAEqAAKm304AASpN306TTkiZ300ADQUAAAAA'
+        command_off: ''
+      office_tv_power:
+        friendly_name: "Office TV Power"
+        command_on: 'JgBYAAABJ5QTExITFDUUERITEhMUERQQEjYUNhMTFTMUNhM2EzYUNhMTETcVEBU0ExMVMxMTEhMVMxMTFTMUEhI3FRAVNBQ1FAAFKQABK0YWAAxUAAEpRxYADQU='
+        command_off: 'JgBYAAABK5ETExETFTMUEhYQERMVEBITFTMUNhMTETcVNRU0FTQVNRU0FRAVNBQSFRARNxUQFRAVERQ0FRAVNBM2ExMVMxU1EwAFKgABK0YVAAxVAAEnSRUADQU='
+      office_amp_power:
+        friendly_name: "Office Amp Power"
+        command_on: 'JgBYAAABK5EWDxU0ExMVEBE3FRAVNBM2EzcTExUzEzYUEhI3FTQVEBURFRASNhMTERMSExURFBAVMxM3ExMVMxM2EzcTNhM2FAAFBQABKEkTAAxWAAEoSRMADQU='
+        command_off: 'JgBYAAABKZIWDxU0FRATEhU0FRAVNRQ1FRAUEBU1FTQWDxU0FjQVEBQ1EzcUNRITFBAVEBY0FRASEhUQFRAVNRI3FDUVEBU0FQAFKAABKkcVAAxVAAEqRhYADQU='
+      office_volume_up:
+        friendly_name: "Office Volume Up"
+        command_on: 'JgCQAAABKJMWEBM2FBISExI3FRAWNBU1FTQVERU1FTUVEBU0FjUVERQQFTQVERQQFhAVEBMSExEVNBURFDUVNRU1FTUWNRU0FQAE7wABK5EVERM2FRAVEBQ2FRETNRY0FTUWERM1FTUVERQ1FjQVERQRFDQWEBQSExITERUQFBEUNRUREzYVNRU0FjUVNRU1FQANBQAAAAAAAAAA'
+        command_off: ''
+      office_volume_down:
+        friendly_name: "Office Volume Down"
+        command_on: 'JgBIAAABLJAUEhM2FhATEhU0FRESNhU2FDYVERI2FTYUEhI3FTQUEhM3FTUVEBUQExITERYQFRASExISFTQVNRY1FTQUNhY1FQANBQ=='
+        command_off: ''
+      office_up:
+        friendly_name: "Office Up"
+        command_on: 'JgAqAKWeHDccNxw3HBwbNxw3HDcblBwbHDc3HRodGxwbHBsdGhwcHBscGwANBQAAAAAAAAAAAAAAAAAA'        
+        command_off: ''
+      office_down:
+        friendly_name: "Office Down"
+        command_on: 'JgAqAKKhGzccNxw3HBscNx41HDcckxwbHjU4Gx0aHBscHRocHRsdGR41HAANBQAAAAAAAAAAAAAAAAAA'             
+        command_off: ''
+      office_left:
+        friendly_name: "Office Left"
+        command_on: 'JgAoAKWdHTcdNh02HRsbNx02HDYdkh0bHzQ4Gx4aHBscGxwbHhocNjgADQU='             
+        command_off: ''
+      office_right:
+        friendly_name: "Office Right"
+        command_on: 'JgAoAKSfHTUeNR41HhocNh41HTYekR4aHTU6Gh4ZHhkeGh0aHhkeNDoADQU='        
+        command_off: ''
+      office_ok:
+        friendly_name: "Office OK"
+        command_on: 'JgAoAKKgHDccOBw3HBwbNxw3HDcbkxwbHDg3HBwbHBwbGxwdGjc4GxwADQU='
+        command_off: ''
+      office_back:
+        friendly_name: "Office Back"
+        command_on: 'JgAoAKSeHDccNxs4HBwbNxw3HDcckhwcGzg7GR4ZGx0dGhscHjQ3NxwADQU='
+        command_off: ''
+      office_fastforward:
+        friendly_name: "Office Fast Forward"
+        command_on: 'JgAoAKKfHTYdNh02HRodNx02HTYckh0aHTY4Gx0bHRocHBs3ORodGh0ADQU='
+        command_off: ''
+      office_rewind:
+        friendly_name: "Office Rewind"
+        command_on: 'JgAoAKOfHDccNxw3HBscOBw3GzcckxwcGzc3HBscHRscGxw3OBscNxwADQU='
+        command_off: ''
+      office_home:
+        friendly_name: "Office Home"
+        command_on: 'JgAoAKWdHDccNxw3HBweNBw3HDcblBwcGzc3HRodGxweGR4aHjQcHDcADQU='
+        command_off: ''
+      office_menu:
+        friendly_name: "Office Menu"
+        command_on: 'JgAqAKGhHDcbOBs3HB0aNx41HDcckxwcGzc4HBscGxwcHBwaHDgcGxwcGwANBQAAAAAAAAAAAAAAAAAA'
+        command_off: ''
+      office_mute:
+        friendly_name: "Office Mute"
+        command_on: 'JgBQAAABKpEVERUzFhAUERUzFhAVMxY0FTQWEBQ1FTQVEBU0FTQVERUzFhAWMxURFBAVEBUQFBEVEBUzFhAUNRU0FTQVNRU0FQAFAwABK0YWAA0FAAAAAAAAAAA='
+        command_off: ''
+      office_am:
+        friendly_name: "Office AM"
+        command_on: 'JgBYAAABKZMUERQ1ExISExQ1FBIRNxM3EjcTERQ2FDUUERM2FDYUERQ1FDYTNhITExEVEBQ2ExITERUREhITNxM2EzYUERQ1FAAFBQABKEkSAAxYAAEnSRMADQU='
+        command_off: ''
+      office_fm:
+        friendly_name: "Office FM"
+        command_on: 'JgBQAAABK5EVERI2FRAVEBYzFRESNhY0FTQVEBU0FjMVERUzFjQVERITEjYWNBUQFRAVEBQ1FRAVMxURFRAUNRU0FTQWEBUzFQAFBAABK0YVAA0FAAAAAAAAAAA='
+        command_off: ''
+      office_retro:
+        friendly_name: "Office Retro PC"
+        command_on: 'JgBYAAABKZIWDxYzFRATERY0FRAVNBU1FRAVEBQ1EzcSEhU0FTQWEBUQEhIVNBU1FRAVEBISFTUVNBU0Fg8WDxU1FDUTNxMRFQAFKAABKkcVAAxVAAEpRxUADQU='
+        command_off: ''
+      office_firetv:
+        friendly_name: "Office Fire TV"
+        command_on: 'JgBYAAABJ5MUEhYzExMUEBU0ExMSNhM2FDYTExE3FTUVEBUzEzcTExUzExMSNhQ2ExMRExUQFRASExI2ExMSExE4FTQVNBU1FQAFAwABKUgTAAxXAAEqRhMADQU='
+        command_off: ''
+      office_xbox:
+        friendly_name: "Office Xbox"
+        command_on: 'JgBYAAABK5EUERU0Fg4WDxQ2FBEVNBY0FDUVDxQ2FDUVEBQ1FDYTEhQ1FjQUNRQ1FRAUERQRExIUEBUQFBEVEBQ1FDUUNhQ1FAAFBQABKkcVAAxVAAEoSBUADQU='
+        command_off: ''

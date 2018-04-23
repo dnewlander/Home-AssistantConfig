@@ -1,0 +1,103 @@
+  good_morning:
+    alias: Good Morning
+    sequence:
+      - alias: Turn bedroom lights on
+        service: switch.turn_on
+        data:
+          data: switch.bed_light
+  good_night:
+    alias: Good Night
+    sequence:
+      - alias: Turn bedroom lights off
+        service: switch.turn_off
+        data:
+          entity_id: switch.bed_light
+      - alias: Turn office amp off
+        service: switch.turn_off
+        data:
+          entity_id: switch.office_amp_power
+      - alias: Set office Fire TV to Home screen
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_home
+      - alias: Turn off office TV
+        service: switch.turn_off
+        data:
+          entity_id: switch.office_tv_power
+      - alias: Turn off Fire TV
+        service: switch.turn_off
+        data:
+          entity_id: switch.office_firetv
+      - alias: Turn off Fire TV home
+        service: switch.turn_off
+        data:
+          entity_id: switch.office_home
+  watch_tv_in_office: 
+    alias: Watch TV in the office
+    sequence:
+      - alias: Turn on office TV
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_tv_power
+      - delay:
+          seconds: 1
+      - alias: Turn office amp on
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_amp_power
+      - alias: Set office Fire TV to Home screen
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_home
+      - delay:
+          seconds: 5
+      - alias: Set office amp to Fire TV input
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_firetv
+  watch_office_fire_tv:
+    alias: Watch Office Fire TV
+    sequence:
+      - alias: Turn on office TV
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_tv_power
+      - delay:
+          seconds: 1
+      - alias: Turn office amp on
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_amp_power
+      - alias: Set office Fire TV to Home screen
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_home
+      - delay:
+          seconds: 5
+      - alias: Set office amp to Fire TV input
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_firetv
+  watch_fire_tv_in_office:
+    alias: Watch Fire TV in the office
+    sequence:
+      - alias: Turn on office TV
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_tv_power
+      - delay:
+          seconds: 1
+      - alias: Turn office amp on
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_amp_power
+      - alias: Set office Fire TV to Home screen
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_home
+      - delay:
+          seconds: 5
+      - alias: Set office amp to Fire TV input
+        service: switch.turn_on
+        data:
+          entity_id: switch.office_firetv
